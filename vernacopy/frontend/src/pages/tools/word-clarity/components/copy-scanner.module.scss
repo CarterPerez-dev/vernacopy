@@ -1,0 +1,267 @@
+// ===================
+// © AngelaMos | 2026
+// copy-scanner.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.scanner {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.editorWrap {
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.editorHeader {
+  padding: $space-2 $space-4;
+  background: $color-dark;
+}
+
+.editorLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-inverse;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: $space-5;
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  line-height: $line-height-relaxed;
+  background: transparent;
+  border: none;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  resize: vertical;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.editorActions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.scanBtn {
+  padding: $space-3 $space-10;
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  border: $border-width-medium solid $color-dark;
+  cursor: pointer;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-dark-alt;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.loadingState {
+  padding: $space-8;
+  text-align: center;
+}
+
+.loadingText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.statsBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $space-6;
+  padding: $space-5 $space-6;
+  border: $border-width-medium solid $color-border-rule;
+  background: $color-base-alt;
+
+  @include breakpoint-down('sm') {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.overallScore {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.scoreValue {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+}
+
+.scoreLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.tierDist {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-left: auto;
+
+  @include breakpoint-down('sm') {
+    margin-left: 0;
+  }
+}
+
+.tierCount {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+}
+
+.tierCountNum {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-secondary;
+}
+
+.phrases {
+  border: $border-width-thin solid $color-border;
+}
+
+.phrasesHeader {
+  padding: $space-2 $space-4;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.phrasesLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.phraseList {
+  display: flex;
+  flex-direction: column;
+}
+
+.phraseRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-bottom: $border-width-thin solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.phraseOriginal {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  color: $color-text-muted;
+  text-decoration: line-through;
+}
+
+.phraseArrow {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  color: $color-border-strong;
+  flex-shrink: 0;
+}
+
+.phraseReplacement {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  font-weight: $font-weight-medium;
+  color: $color-positive;
+}
+
+.phraseScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  color: $color-text-muted;
+  margin-left: auto;
+}
+
+.resultActions {
+  display: flex;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  padding: $space-2 $space-5;
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-primary;
+  border: $border-width-thin solid $color-border-rule;
+  cursor: pointer;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-base-alt;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.actionBtnAlt {
+  padding: $space-2 $space-5;
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  border: $border-width-thin solid $color-border;
+  cursor: pointer;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent;
+    border-color: $color-accent;
+  }
+}

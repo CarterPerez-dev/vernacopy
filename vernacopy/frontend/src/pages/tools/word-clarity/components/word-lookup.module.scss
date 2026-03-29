@@ -1,0 +1,238 @@
+// ===================
+// © AngelaMos | 2026
+// word-lookup.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.lookup {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  align-items: flex-end;
+}
+
+.inputWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.inputLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-body;
+  background: transparent;
+  border: $border-width-medium solid $color-border-rule;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  transition: border-color $duration-fast $ease-out;
+
+  &::placeholder {
+    color: $color-text-muted;
+    font-family: $font-mono;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.submitBtn {
+  padding: $space-3 $space-10;
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  border: $border-width-medium solid $color-dark;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-dark-alt;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.loadingState {
+  padding: $space-8;
+  text-align: center;
+}
+
+.loadingText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.resultHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-6;
+  padding: $space-6;
+  border-bottom: $border-width-thin solid $color-border;
+
+  @include breakpoint-down('sm') {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $space-4;
+  }
+}
+
+.scoreDisplay {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-shrink: 0;
+}
+
+.scoreValue {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-md;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+
+  @include breakpoint-up('md') {
+    font-size: $font-size-display-lg;
+  }
+}
+
+.wordInfo {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.wordText {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h2;
+  color: $color-text-primary;
+}
+
+.cefrLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.result .breakdown {
+  margin: 0;
+  border: none;
+  border-top: $border-width-thin solid $color-border;
+}
+
+.alternatives {
+  border-top: $border-width-thin solid $color-border;
+}
+
+.altHeader {
+  padding: $space-3 $space-6;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.altLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.altList {
+  display: flex;
+  flex-direction: column;
+}
+
+.altRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-6;
+  border-bottom: $border-width-thin solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.altWord {
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+  flex: 1;
+}
+
+.altScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-secondary;
+}
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-8;
+  border: $border-width-thin solid $color-border;
+  text-align: center;
+}
+
+.notFoundTitle {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.notFoundDesc {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  color: $color-text-muted;
+}

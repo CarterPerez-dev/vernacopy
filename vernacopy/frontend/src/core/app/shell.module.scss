@@ -1,0 +1,276 @@
+// ===================
+// © AngelaMos | 2026
+// shell.module.scss
+// ===================
+
+@use '../../styles' as *;
+
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: $z-sticky;
+  background: $color-base;
+  border-bottom: $border-width-thick solid $color-border-rule;
+  height: $nav-height;
+}
+
+.navInner {
+  max-width: $max-width-content;
+  margin: 0 auto;
+  padding: 0 $space-6;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: $space-8;
+}
+
+.brand {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-h3;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: none;
+  align-items: center;
+  gap: $space-6;
+
+  @include breakpoint-up('md') {
+    display: flex;
+  }
+}
+
+.navLink {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-secondary;
+  padding: $space-2 0;
+  border-bottom: $border-width-medium solid transparent;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.navLinkActive {
+  color: $color-text-primary;
+  border-bottom-color: $color-accent;
+}
+
+.navActions {
+  display: none;
+  align-items: center;
+  gap: $space-4;
+  margin-left: auto;
+
+  @include breakpoint-up('md') {
+    display: flex;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: $border-width-medium solid $color-border-rule;
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  line-height: $line-height-none;
+}
+
+.exitBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  padding: $space-1 $space-2;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.menuToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+
+  @include breakpoint-up('md') {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-overlay;
+  background: $color-overlay;
+  border: none;
+  cursor: default;
+}
+
+.sidebar {
+  position: fixed;
+  top: $nav-height;
+  right: 0;
+  bottom: 0;
+  z-index: $z-modal;
+  width: 280px;
+  background: $color-dark;
+  padding: $space-6;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.sidebarHeader {
+  padding-bottom: $space-4;
+  border-bottom: $border-width-thin solid $color-border-strong;
+  margin-bottom: $space-4;
+}
+
+.sidebarLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.sidebarLink {
+  font-family: $font-mono;
+  font-size: $font-size-mono-md;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  padding: $space-3 $space-2;
+  border-left: $border-width-medium solid transparent;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-inverse;
+  }
+}
+
+.sidebarLinkActive {
+  color: $color-text-inverse;
+  border-left-color: $color-accent;
+}
+
+.sidebarDivider {
+  height: $border-width-thin;
+  background: $color-border-strong;
+  margin: $space-4 0;
+}
+
+.sidebarLogout {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  padding: $space-3 $space-2;
+  text-align: left;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.main {
+  flex: 1;
+  max-width: $max-width-content;
+  width: 100%;
+  margin: 0 auto;
+  padding: $space-8 $space-6;
+
+  @include breakpoint-up('md') {
+    padding: $space-12 $space-6;
+  }
+}
+
+.errorFallback {
+  padding: $space-8;
+  border: $border-width-medium solid $color-accent;
+}
+
+.errorTitle {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-accent;
+  margin-bottom: $space-4;
+}
+
+.errorMessage {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  color: $color-text-secondary;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-16 0;
+  justify-content: center;
+}
+
+.loadingText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.loadingDots {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  color: $color-text-muted;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

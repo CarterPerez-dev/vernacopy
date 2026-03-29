@@ -1,0 +1,73 @@
+// ===================
+// © AngelaMos | 2026
+// score-breakdown.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.breakdown {
+  border: $border-width-thin solid $color-border;
+}
+
+.header {
+  padding: $space-2 $space-4;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.headerLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-2 $space-4;
+  border-bottom: $border-width-thin solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.dimLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-secondary;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.barTrack {
+  flex: 1;
+  height: 6px;
+  background: $color-base-alt;
+  position: relative;
+}
+
+.barFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: $color-border-rule;
+  transition: width $duration-slow $ease-out;
+}
+
+.dimScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}

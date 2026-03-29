@@ -1,0 +1,230 @@
+// ===================
+// © AngelaMos | 2026
+// history.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+  padding-bottom: $space-6;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+}
+
+.backLink {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.loadingState,
+.errorState,
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-16 $space-8;
+  border: $border-width-thin solid $color-border;
+  text-align: center;
+}
+
+.loadingText,
+.errorText,
+.emptyTitle {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.errorText {
+  color: $color-accent;
+}
+
+.emptyDesc {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  color: $color-text-muted;
+}
+
+.list {
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.listHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 $space-5;
+  background: $color-dark;
+}
+
+.listLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-inverse;
+}
+
+.listCount {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4 $space-5;
+  border-bottom: $border-width-thin solid $color-border;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.rowBorder {
+  width: 3px;
+  align-self: stretch;
+  flex-shrink: 0;
+}
+
+.rowBorderS { background: $color-tier-s; }
+.rowBorderA { background: $color-tier-a; }
+.rowBorderB { background: $color-tier-b; }
+.rowBorderC { background: $color-tier-c; }
+.rowBorderD { background: $color-tier-d; }
+
+.rowContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  min-width: 0;
+}
+
+.rowPreview {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  color: $color-text-primary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.rowScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-secondary;
+}
+
+.rowDate {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.deleteBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  transition: color $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    color: $color-accent;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-6;
+  padding: $space-4 0;
+}
+
+.pageBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-secondary;
+  padding: $space-2 $space-4;
+  border: $border-width-thin solid $color-border;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    color: $color-text-primary;
+    border-color: $color-border-rule;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.pageInfo {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}

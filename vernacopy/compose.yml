@@ -1,0 +1,161 @@
+# =============================================================================
+# AngelaMos | 2026
+# compose.yml
+# =============================================================================
+# Production compose - Nginx + VernaCopy Backend + PostgreSQL + Redis
+# For Cloudflare tunnel: docker compose -f compose.yml -f cloudflared.compose.yml up
+# =============================================================================
+
+name: ${APP_NAME:-vernacopy}
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: infra/docker/frontend-builder.prod
+      args:
+        - VITE_API_URL=${VITE_API_URL:-/api}
+        - VITE_APP_TITLE=${VITE_APP_TITLE:-VernaCopy}
+    container_name: ${APP_NAME:-vernacopy}-nginx
+    ports:
+      - "${NGINX_HOST_PORT:-31426}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - frontend
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 64M
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../infra/docker/fastapi.prod
+    container_name: ${APP_NAME:-vernacopy}-backend
+    ports:
+      - "${BACKEND_HOST_PORT:-47819}:8000"
+    expose:
+      - "8000"
+    env_file:
+      - .env
+    environment:
+      - ENVIRONMENT=production
+      - DEBUG=false
+      - RELOAD=false
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ${APP_NAME:-vernacopy}-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '2.0'
+          memory: 4G
+        reservations:
+          cpus: '0.5'
+          memory: 2G
+    restart: unless-stopped
+
+  db:
+    image: pgvector/pgvector:pg17
+    container_name: ${APP_NAME:-vernacopy}-db
+    ports:
+      - "${POSTGRES_HOST_PORT:-23654}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-postgres}
+      - POSTGRES_DB=${POSTGRES_DB:-app_db}
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-app_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: ${APP_NAME:-vernacopy}-redis
+    ports:
+      - "${REDIS_HOST_PORT:-41087}:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes ${REDIS_PASSWORD:+--requirepass ${REDIS_PASSWORD}}
+    networks:
+      - backend
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+        reservations:
+          cpus: '0.1'
+          memory: 64M
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: vernacopy_postgres
+  redis_data:
+    name: vernacopy_redis
+  ollama_data:
+    name: vernacopy_ollama

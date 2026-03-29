@@ -1,0 +1,57 @@
+// ===================
+// © AngelaMos | 2026
+// highlighted-text.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.textBlock {
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  line-height: 2;
+  color: $color-text-primary;
+  padding: $space-6;
+  border: $border-width-thin solid $color-border;
+  background: $color-base;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.word {
+  display: inline;
+}
+
+.wordBtn {
+  display: inline;
+  font: inherit;
+  line-height: inherit;
+  padding: $space-1 $space-1;
+  margin: -#{$space-1};
+  border-bottom: $border-width-medium solid currentcolor;
+  cursor: pointer;
+  transition: background $duration-fast $ease-out;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+}
+
+.tokenS {
+  color: $color-tier-s;
+}
+
+.tokenA {
+  color: $color-tier-a;
+}
+
+.tokenB {
+  color: $color-text-primary;
+}
+
+.tokenC {
+  color: $color-tier-c;
+}
+
+.tokenD {
+  color: $color-tier-d;
+}

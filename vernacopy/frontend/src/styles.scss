@@ -1,0 +1,29 @@
+// ===================
+// © AngelaMos | 2026
+// styles.scss
+// ===================
+
+@forward 'styles/tokens';
+@forward 'styles/fonts';
+@forward 'styles/mixins';
+
+@use 'styles/reset';
+@use 'styles/tokens' as *;
+@use 'styles/fonts' as *;
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
