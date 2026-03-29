@@ -77,7 +77,7 @@ export function Component(): React.ReactElement {
               <span className={styles.listCount}>{data.total} TOTAL</span>
             </div>
             {data.items.map((item) => {
-              const tier = getTierForScore(item.overall_score)
+              const tier = getTierForScore(item.overall_score ?? 0)
 
               return (
                 <div key={item.id} className={styles.row}>
@@ -90,7 +90,7 @@ export function Component(): React.ReactElement {
                     </span>
                     <div className={styles.rowMeta}>
                       <span className={styles.rowScore}>
-                        {Math.round(item.overall_score)}
+                        {Math.round(item.overall_score ?? 0)}
                       </span>
                       <TierBadge tier={tier} size="sm" />
                       <span className={styles.rowDate}>

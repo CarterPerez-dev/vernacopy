@@ -24,7 +24,8 @@ export function WordCompare(): React.ReactElement {
 
   const data = compare.data
   const winnerIsA =
-    data !== undefined && data.word_a.clarity_score >= data.word_b.clarity_score
+    data !== undefined &&
+    (data.word_a.clarity_score ?? 0) >= (data.word_b.clarity_score ?? 0)
 
   return (
     <div className={styles.compare}>
@@ -88,9 +89,9 @@ export function WordCompare(): React.ReactElement {
               <div className={styles.cardBody}>
                 <div className={styles.cardScore}>
                   <span className={styles.scoreValue}>
-                    {Math.round(data.word_a.clarity_score)}
+                    {Math.round(data.word_a.clarity_score ?? 0)}
                   </span>
-                  <TierBadge tier={data.word_a.tier} size="md" />
+                  <TierBadge tier={data.word_a.tier ?? 'D'} size="md" />
                 </div>
                 <span className={styles.cardWord}>{data.word_a.word}</span>
                 {data.word_a.cefr_level !== null && (
@@ -98,7 +99,9 @@ export function WordCompare(): React.ReactElement {
                     CEFR {data.word_a.cefr_level}
                   </span>
                 )}
-                <ScoreBreakdownChart breakdown={data.word_a.breakdown} />
+                {data.word_a.breakdown !== null && (
+                  <ScoreBreakdownChart breakdown={data.word_a.breakdown} />
+                )}
               </div>
             </div>
 
@@ -112,9 +115,9 @@ export function WordCompare(): React.ReactElement {
               <div className={styles.cardBody}>
                 <div className={styles.cardScore}>
                   <span className={styles.scoreValue}>
-                    {Math.round(data.word_b.clarity_score)}
+                    {Math.round(data.word_b.clarity_score ?? 0)}
                   </span>
-                  <TierBadge tier={data.word_b.tier} size="md" />
+                  <TierBadge tier={data.word_b.tier ?? 'D'} size="md" />
                 </div>
                 <span className={styles.cardWord}>{data.word_b.word}</span>
                 {data.word_b.cefr_level !== null && (
@@ -122,7 +125,9 @@ export function WordCompare(): React.ReactElement {
                     CEFR {data.word_b.cefr_level}
                   </span>
                 )}
-                <ScoreBreakdownChart breakdown={data.word_b.breakdown} />
+                {data.word_b.breakdown !== null && (
+                  <ScoreBreakdownChart breakdown={data.word_b.breakdown} />
+                )}
               </div>
             </div>
           </div>
@@ -134,7 +139,7 @@ export function WordCompare(): React.ReactElement {
             <div className={styles.verdictContent}>
               <span className={styles.verdictText}>{data.recommendation}</span>
               <span className={styles.verdictDelta}>
-                &Delta; {Math.round(data.score_difference)}
+                &Delta; {Math.round(data.score_difference ?? 0)}
               </span>
             </div>
           </div>

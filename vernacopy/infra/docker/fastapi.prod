@@ -17,7 +17,8 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 WORKDIR /app
 
 ENV UV_COMPILE_BYTECODE=1 \
-    UV_LINK_MODE=copy
+    UV_LINK_MODE=copy \
+    UV_PYTHON_PREFERENCE=only-system
 
 COPY pyproject.toml uv.lock* ./
 
@@ -43,11 +44,12 @@ COPY --from=builder --chown=appuser:appgroup /app/.venv /app/.venv
 COPY --from=builder --chown=appuser:appgroup /app/app /app/app
 COPY --from=builder --chown=appuser:appgroup /app/alembic /app/alembic
 COPY --from=builder --chown=appuser:appgroup /app/alembic.ini /app/alembic.ini
+COPY --from=builder --chown=appuser:appgroup /app/pyproject.toml /app/pyproject.toml
 
-ENV PATH="/app/.venv/bin:$PATH" \
-    PYTHONDONTWRITEBYTECODE=1 \
+ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/app/app
+    PYTHONPATH=/app/app \
+    PATH="/app/.venv/bin:$PATH"
 
 USER appuser
 
