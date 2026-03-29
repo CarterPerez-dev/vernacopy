@@ -28,7 +28,7 @@
   max-width: 300px;
   background: $color-dark;
   border: $border-width-medium solid $color-border-rule;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 4px 4px 0 rgb(0, 0, 0, 10%);
 }
 
 .popoverHeader {
@@ -75,7 +75,7 @@
   align-items: center;
   gap: $space-3;
   padding: $space-2 $space-4;
-  border-bottom: $border-width-thin solid rgba(255, 255, 255, 0.06);
+  border-bottom: $border-width-thin solid rgb(255, 255, 255, 6%);
   text-align: left;
   transition: background $duration-fast $ease-out;
 
@@ -84,7 +84,7 @@
   }
 
   &:hover {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgb(255, 255, 255, 6%);
   }
 }
 

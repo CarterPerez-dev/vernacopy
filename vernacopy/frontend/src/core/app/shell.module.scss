@@ -243,7 +243,7 @@
   font-size: $font-size-mono-sm;
   color: $color-text-secondary;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .loading {

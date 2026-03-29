@@ -14,7 +14,7 @@
   border: $border-width-thin solid $color-border;
   background: $color-base;
   white-space: pre-wrap;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .word {
@@ -32,7 +32,7 @@
   transition: background $duration-fast $ease-out;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.04);
+    background: rgb(0, 0, 0, 4%);
   }
 }
 

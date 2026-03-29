@@ -6,7 +6,7 @@
 # For Cloudflare tunnel: docker compose -f compose.yml -f cloudflared.compose.yml up
 # =============================================================================
 
-name: ${APP_NAME:-vernacopy}
+name: vernacopy
 
 services:
   nginx:
@@ -155,7 +155,9 @@ networks:
 volumes:
   postgres_data:
     name: vernacopy_postgres
+    external: true
   redis_data:
     name: vernacopy_redis
   ollama_data:
     name: vernacopy_ollama
+    external: true

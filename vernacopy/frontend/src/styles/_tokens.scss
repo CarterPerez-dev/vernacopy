@@ -30,13 +30,13 @@ $color-tier-b: #8B7E56;
 $color-tier-c: #C47D2D;
 $color-tier-d: #B44D2D;
 
-$color-tier-s-bg: rgba(45, 125, 95, 0.08);
-$color-tier-a-bg: rgba(74, 122, 86, 0.08);
-$color-tier-b-bg: rgba(139, 126, 86, 0.08);
-$color-tier-c-bg: rgba(196, 125, 45, 0.08);
-$color-tier-d-bg: rgba(180, 77, 45, 0.10);
+$color-tier-s-bg: rgb(45, 125, 95, 8%);
+$color-tier-a-bg: rgb(74, 122, 86, 8%);
+$color-tier-b-bg: rgb(139, 126, 86, 8%);
+$color-tier-c-bg: rgb(196, 125, 45, 8%);
+$color-tier-d-bg: rgb(180, 77, 45, 10%);
 
-$color-overlay: rgba(28, 25, 23, 0.6);
+$color-overlay: rgb(28, 25, 23, 60%);
 
 $font-weight-regular: 400;
 $font-weight-medium: 500;

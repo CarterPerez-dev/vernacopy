@@ -58,9 +58,9 @@ export function WordLookup(): React.ReactElement {
             <div className={styles.resultHeader}>
               <div className={styles.scoreDisplay}>
                 <span className={styles.scoreValue}>
-                  {Math.round(lookup.data.clarity_score)}
+                  {Math.round(lookup.data.clarity_score ?? 0)}
                 </span>
-                <TierBadge tier={lookup.data.tier} size="md" />
+                <TierBadge tier={lookup.data.tier ?? 'D'} size="md" />
               </div>
               <div className={styles.wordInfo}>
                 <span className={styles.wordText}>{lookup.data.word}</span>
@@ -72,7 +72,9 @@ export function WordLookup(): React.ReactElement {
               </div>
             </div>
 
-            <ScoreBreakdownChart breakdown={lookup.data.breakdown} />
+            {lookup.data.breakdown !== null && (
+              <ScoreBreakdownChart breakdown={lookup.data.breakdown} />
+            )}
 
             {lookup.data.alternatives.length > 0 && (
               <div className={styles.alternatives}>
