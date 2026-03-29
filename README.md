@@ -16,8 +16,8 @@
 [![License: AGPLv3](https://img.shields.io/badge/License-AGPL_v3-purple.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
 > Word clarity scoring for copywriters, marketers, and anyone who writes to be understood.
-
-gonna put an image here
+> 
+<img width="1593" height="983" alt="vernacopy" src="https://github.com/user-attachments/assets/e3b9c576-dc49-4b12-853b-2c433a05ebe5" />
 
 ---
 
