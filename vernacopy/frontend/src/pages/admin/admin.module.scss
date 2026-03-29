@@ -1,0 +1,466 @@
+// ===================
+// © AngelaMos | 2026
+// admin.module.scss
+// ===================
+
+@use '../../styles' as *;
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.header {
+  padding-bottom: $space-6;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.headerMeta {
+  margin-bottom: $space-3;
+}
+
+.metaLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-4;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+}
+
+.createBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  padding: $space-2 $space-4;
+  border: $border-width-medium solid $color-dark;
+  transition: background $duration-fast $ease-out;
+
+  &:hover {
+    background: $color-dark-alt;
+  }
+}
+
+.loadingState,
+.emptyState {
+  padding: $space-12;
+  text-align: center;
+  border: $border-width-thin solid $color-border;
+}
+
+.loadingText,
+.emptyText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.table {
+  border: $border-width-medium solid $color-border-rule;
+  overflow-x: auto;
+}
+
+.tableHeader {
+  display: none;
+  padding: $space-3 $space-5;
+  background: $color-dark;
+
+  @include breakpoint-up('md') {
+    display: flex;
+    gap: $space-4;
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: $font-size-mono-xs;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    color: $color-text-inverse;
+  }
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-4 $space-5;
+  border-bottom: $border-width-thin solid $color-border;
+
+  @include breakpoint-up('md') {
+    flex-direction: row;
+    align-items: center;
+    gap: $space-4;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: $font-size-mono-sm;
+    color: $color-text-primary;
+  }
+}
+
+.colEmail {
+  flex: 2;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.colName {
+  flex: 1.5;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.colRole {
+  flex: 0.8;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.colStatus {
+  flex: 0.8;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.statusActive {
+  color: $color-positive !important;
+}
+
+.statusInactive {
+  color: $color-text-muted !important;
+}
+
+.colActions {
+  flex: 1;
+  display: flex;
+  gap: $space-3;
+  justify-content: flex-end;
+}
+
+.rowBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.rowBtnDanger {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-6;
+  padding: $space-4 0;
+}
+
+.pageBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-secondary;
+  padding: $space-2 $space-4;
+  border: $border-width-thin solid $color-border;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    color: $color-text-primary;
+    border-color: $color-border-rule;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.pageInfo {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
+}
+
+.modalBackdrop {
+  position: absolute;
+  inset: 0;
+  background: $color-overlay;
+  border: none;
+  cursor: default;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: $max-width-form;
+  background: $color-base;
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 $space-5;
+  background: $color-dark;
+}
+
+.modalHeaderDanger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-3 $space-5;
+  background: $color-accent;
+}
+
+.modalTitle {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-inverse;
+}
+
+.modalClose {
+  color: $color-text-inverse;
+  font-size: $font-size-body;
+  line-height: $line-height-none;
+  opacity: 0.7;
+  transition: opacity $duration-fast $ease-out;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.modalBody {
+  padding: $space-6 $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-mono-md;
+  background: transparent;
+  border: $border-width-thin solid $color-border;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  transition: border-color $duration-fast $ease-out;
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-rule;
+  }
+}
+
+.select {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-mono-md;
+  background: transparent;
+  border: $border-width-thin solid $color-border;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  cursor: pointer;
+  appearance: none;
+  transition: border-color $duration-fast $ease-out;
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-rule;
+  }
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: 18px;
+    height: 18px;
+    accent-color: $color-dark;
+    cursor: pointer;
+  }
+
+  span {
+    font-family: $font-mono;
+    font-size: $font-size-mono-sm;
+    color: $color-text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+  }
+}
+
+.modalActions {
+  display: flex;
+  gap: $space-3;
+  justify-content: flex-end;
+  padding-top: $space-4;
+  border-top: $border-width-thin solid $color-border;
+}
+
+.cancelBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  padding: $space-2 $space-5;
+  border: $border-width-thin solid $color-border;
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+    border-color: $color-border-rule;
+  }
+}
+
+.submitBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  padding: $space-2 $space-5;
+  border: $border-width-medium solid $color-dark;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-dark-alt;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.deleteBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-accent;
+  padding: $space-2 $space-5;
+  border: $border-width-medium solid $color-accent;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-accent-hover;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.deleteMessage {
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+
+  strong {
+    color: $color-text-primary;
+    font-weight: $font-weight-semibold;
+  }
+}

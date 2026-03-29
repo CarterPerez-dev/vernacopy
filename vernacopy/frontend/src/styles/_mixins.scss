@@ -1,0 +1,25 @@
+// ===================
+// © AngelaMos | 2026
+// _mixins.scss
+// ===================
+
+@use 'sass:map';
+@use 'tokens' as *;
+
+$breakpoints: (
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map.get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (width < map.get($breakpoints, $size)) {
+    @content;
+  }
+}

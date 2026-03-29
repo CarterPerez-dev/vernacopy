@@ -1,0 +1,63 @@
+// ===================
+// © AngelaMos | 2026
+// tier-badge.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-mono;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  line-height: $line-height-none;
+  border: $border-width-thin solid currentcolor;
+  flex-shrink: 0;
+}
+
+.sm {
+  font-size: $font-size-mono-xs;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 $space-1;
+}
+
+.md {
+  font-size: $font-size-mono-md;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 $space-2;
+}
+
+.tierS {
+  color: $color-tier-s;
+  background: $color-tier-s-bg;
+  border-color: $color-tier-s;
+}
+
+.tierA {
+  color: $color-tier-a;
+  background: $color-tier-a-bg;
+  border-color: $color-tier-a;
+}
+
+.tierB {
+  color: $color-tier-b;
+  background: $color-tier-b-bg;
+  border-color: $color-tier-b;
+}
+
+.tierC {
+  color: $color-tier-c;
+  background: $color-tier-c-bg;
+  border-color: $color-tier-c;
+}
+
+.tierD {
+  color: $color-tier-d;
+  background: $color-tier-d-bg;
+  border-color: $color-tier-d;
+}

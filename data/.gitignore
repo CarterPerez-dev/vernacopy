@@ -1,0 +1,5 @@
+raw/*.csv
+raw/*.txt
+raw/*.xlsx
+raw/*.tsv
+!raw/.gitkeep

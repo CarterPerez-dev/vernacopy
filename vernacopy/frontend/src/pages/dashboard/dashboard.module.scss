@@ -1,0 +1,185 @@
+// ===================
+// © AngelaMos | 2026
+// dashboard.module.scss
+// ===================
+
+@use '../../styles' as *;
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-10;
+}
+
+.header {
+  padding-bottom: $space-8;
+  border-bottom: $border-width-thin solid $color-border;
+}
+
+.headerMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-bottom: $space-4;
+}
+
+.metaLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.adminBadge {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-accent;
+  padding: $space-1 $space-2;
+  border: $border-width-thin solid $color-accent;
+}
+
+.greeting {
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+  color: $color-text-secondary;
+  margin-bottom: $space-1;
+}
+
+.userName {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+
+  @include breakpoint-up('md') {
+    font-size: $font-size-display-md;
+  }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-4;
+
+  @include breakpoint-up('sm') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.statCard {
+  padding: $space-5 $space-5 $space-4;
+  border: $border-width-thin solid $color-border;
+  border-top: $border-width-thick solid $color-border-rule;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.statValue {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+}
+
+.statLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.actionsSection {
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.actionsHeader {
+  padding: $space-3 $space-5;
+  background: $color-dark;
+}
+
+.actionsLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-inverse;
+}
+
+.actionsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4 $space-5;
+  border-bottom: $border-width-thin solid $color-border;
+  transition: background $duration-fast $ease-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: $color-base-alt;
+  }
+}
+
+.actionNum {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  color: $color-accent;
+  letter-spacing: $letter-spacing-wide;
+  flex-shrink: 0;
+}
+
+.actionContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.actionTitle {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+}
+
+.actionDesc {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  color: $color-text-muted;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+}
+
+.actionArrow {
+  font-size: $font-size-h3;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  transition: color $duration-fast $ease-out,
+    transform $duration-fast $ease-out;
+
+  .actionRow:hover & {
+    color: $color-accent;
+    transform: translateX(2px);
+  }
+}

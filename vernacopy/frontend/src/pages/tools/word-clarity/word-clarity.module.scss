@@ -1,0 +1,88 @@
+// ===================
+// © AngelaMos | 2026
+// word-clarity.module.scss
+// ===================
+
+@use '../../../styles' as *;
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.toolHeader {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $space-4;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  line-height: $line-height-tight;
+
+  @include breakpoint-up('md') {
+    font-size: $font-size-display-md;
+  }
+}
+
+.historyLink {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  flex-shrink: 0;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+.tabBar {
+  display: flex;
+  gap: 0;
+  border-bottom: $border-width-medium solid $color-border;
+}
+
+.tab {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  padding: $space-3 $space-5;
+  border-bottom: $border-width-medium solid transparent;
+  margin-bottom: -#{$border-width-medium};
+  transition: color $duration-fast $ease-out,
+    border-color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.tabActive {
+  color: $color-text-primary;
+  font-weight: $font-weight-bold;
+  border-bottom-color: $color-accent;
+}
+
+.tabContent {
+  min-height: 300px;
+}

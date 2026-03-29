@@ -1,0 +1,244 @@
+// ===================
+// © AngelaMos | 2026
+// word-compare.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.compare {
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  gap: $space-3;
+
+  @include breakpoint-down('md') {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.inputWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.inputLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-body;
+  background: transparent;
+  border: $border-width-medium solid $color-border-rule;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  transition: border-color $duration-fast $ease-out;
+
+  &::placeholder {
+    color: $color-text-muted;
+    font-family: $font-mono;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-accent;
+  }
+}
+
+.vsLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  padding: $space-3 $space-2;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.submitBtn {
+  padding: $space-3 $space-6;
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  border: $border-width-medium solid $color-dark;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-dark-alt;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+}
+
+.loadingState {
+  padding: $space-8;
+  text-align: center;
+}
+
+.loadingText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.wordGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-6;
+
+  @include breakpoint-up('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.wordCard {
+  border: $border-width-thin solid $color-border;
+}
+
+.winner {
+  border-color: $color-positive;
+  border-width: $border-width-medium;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-2 $space-4;
+  border-bottom: $border-width-thin solid $color-border;
+
+  .winner & {
+    background: $color-tier-s-bg;
+    border-bottom-color: $color-positive;
+  }
+}
+
+.cardLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.winnerTag {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-positive;
+}
+
+.cardBody {
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.cardScore {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.scoreValue {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  color: $color-text-primary;
+  line-height: $line-height-none;
+}
+
+.cardWord {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-h2;
+  color: $color-text-primary;
+}
+
+.cefrLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+}
+
+.verdict {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+  padding: $space-5 $space-6;
+  border: $border-width-medium solid $color-border-rule;
+  background: $color-base-alt;
+}
+
+.verdictArrow {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  color: $color-positive;
+  line-height: $line-height-none;
+  flex-shrink: 0;
+}
+
+.verdictContent {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.verdictText {
+  font-family: $font-sans;
+  font-size: $font-size-body;
+  color: $color-text-primary;
+}
+
+.verdictDelta {
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}

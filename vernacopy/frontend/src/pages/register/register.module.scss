@@ -1,0 +1,196 @@
+// ===================
+// © AngelaMos | 2026
+// register.module.scss
+// ===================
+
+@use '../../styles' as *;
+
+.page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-6;
+}
+
+.container {
+  width: 100%;
+  max-width: $max-width-form;
+}
+
+.backLink {
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  margin-bottom: $space-6;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.card {
+  border: $border-width-medium solid $color-border-rule;
+}
+
+.cardHeader {
+  padding: $space-3 $space-5;
+  background: $color-dark;
+  border-bottom: $border-width-thin solid $color-border-rule;
+}
+
+.headerLabel {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-inverse;
+}
+
+.cardBody {
+  padding: $space-8 $space-5;
+}
+
+.title {
+  font-family: $font-display;
+  font-weight: $font-weight-black;
+  font-size: $font-size-display-sm;
+  letter-spacing: $letter-spacing-tight;
+  color: $color-text-primary;
+  margin-bottom: $space-8;
+  line-height: $line-height-tight;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-secondary;
+}
+
+.input {
+  width: 100%;
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-mono-md;
+  background: transparent;
+  border: $border-width-thin solid $color-border;
+  border-radius: $radius-none;
+  color: $color-text-primary;
+  transition: border-color $duration-fast $ease-out;
+
+  &::placeholder {
+    color: $color-text-muted;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $color-border-rule;
+  }
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+.inputGroup .input {
+  flex: 1;
+  border-right: none;
+}
+
+.toggleBtn {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+  padding: 0 $space-3;
+  border: $border-width-thin solid $color-border;
+  border-left: none;
+  transition: color $duration-fast $ease-out;
+  flex-shrink: 0;
+
+  &:hover {
+    color: $color-text-primary;
+  }
+}
+
+.submitBtn {
+  width: 100%;
+  padding: $space-3 $space-6;
+  margin-top: $space-2;
+  font-family: $font-mono;
+  font-size: $font-size-mono-sm;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-inverse;
+  background: $color-dark;
+  border: $border-width-medium solid $color-dark;
+  cursor: pointer;
+  transition: background $duration-fast $ease-out;
+
+  &:hover:not(:disabled) {
+    background: $color-dark-alt;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.altAction {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-6;
+  padding-top: $space-5;
+  border-top: $border-width-thin solid $color-border;
+}
+
+.altText {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  color: $color-text-muted;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.altLink {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-accent;
+  transition: color $duration-fast $ease-out;
+
+  &:hover {
+    color: $color-accent-hover;
+  }
+}

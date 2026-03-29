@@ -1,0 +1,117 @@
+// ===================
+// © AngelaMos | 2026
+// _tokens.scss
+// ===================
+
+$color-base: #F2EDE8;
+$color-base-alt: #EAE4DD;
+$color-dark: #1C1917;
+$color-dark-alt: #292524;
+$color-ink: #1C1917;
+
+$color-border: #D4CEC6;
+$color-border-strong: #8A847C;
+$color-border-rule: #1C1917;
+
+$color-text-primary: #1C1917;
+$color-text-secondary: #57534E;
+$color-text-muted: #A8A29E;
+$color-text-inverse: #F2EDE8;
+
+$color-accent: #B44D2D;
+$color-accent-hover: #9A3F24;
+$color-positive: #2D7D5F;
+$color-positive-hover: #246B50;
+$color-caution: #C47D2D;
+
+$color-tier-s: #2D7D5F;
+$color-tier-a: #4A7A56;
+$color-tier-b: #8B7E56;
+$color-tier-c: #C47D2D;
+$color-tier-d: #B44D2D;
+
+$color-tier-s-bg: rgba(45, 125, 95, 0.08);
+$color-tier-a-bg: rgba(74, 122, 86, 0.08);
+$color-tier-b-bg: rgba(139, 126, 86, 0.08);
+$color-tier-c-bg: rgba(196, 125, 45, 0.08);
+$color-tier-d-bg: rgba(180, 77, 45, 0.10);
+
+$color-overlay: rgba(28, 25, 23, 0.6);
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$font-size-display-xl: 4.5rem;
+$font-size-display-lg: 3.5rem;
+$font-size-display-md: 3rem;
+$font-size-display-sm: 2.25rem;
+$font-size-h1: 1.75rem;
+$font-size-h2: 1.5rem;
+$font-size-h3: 1.25rem;
+$font-size-body: 1rem;
+$font-size-body-sm: 0.875rem;
+$font-size-mono-md: 0.8125rem;
+$font-size-mono-sm: 0.75rem;
+$font-size-mono-xs: 0.6875rem;
+
+$line-height-none: 1;
+$line-height-tight: 1.1;
+$line-height-snug: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.08em;
+$letter-spacing-wider: 0.12em;
+
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-5: 1.25rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-10: 2.5rem;
+$space-12: 3rem;
+$space-16: 4rem;
+$space-20: 5rem;
+$space-24: 6rem;
+$space-32: 8rem;
+
+$border-width-thin: 1px;
+$border-width-medium: 2px;
+$border-width-thick: 3px;
+
+$radius-none: 0;
+$radius-sm: 1px;
+$radius-md: 2px;
+
+$duration-fast: 100ms;
+$duration-normal: 150ms;
+$duration-slow: 200ms;
+
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+$z-base: 0;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-overlay: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-toast: 800;
+
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+$max-width-content: 1200px;
+$max-width-narrow: 480px;
+$max-width-form: 420px;
+
+$nav-height: 56px;

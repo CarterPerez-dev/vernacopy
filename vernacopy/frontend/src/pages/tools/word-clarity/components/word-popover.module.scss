@@ -1,0 +1,112 @@
+// ===================
+// © AngelaMos | 2026
+// word-popover.module.scss
+// ===================
+
+@use '../../../../styles' as *;
+
+.trigger {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  border: none;
+  z-index: $z-popover - 1;
+  cursor: default;
+}
+
+.popover {
+  position: absolute;
+  z-index: $z-popover;
+  min-width: 220px;
+  max-width: 300px;
+  background: $color-dark;
+  border: $border-width-medium solid $color-border-rule;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.popoverHeader {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-bottom: $border-width-thin solid $color-border-strong;
+}
+
+.popoverWord {
+  font-family: $font-display;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-body;
+  color: $color-text-inverse;
+  flex: 1;
+}
+
+.popoverScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-md;
+  font-weight: $font-weight-bold;
+  color: $color-text-inverse;
+}
+
+.suggestionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestionLabel {
+  padding: $space-2 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $color-text-muted;
+  border-bottom: $border-width-thin solid $color-border-strong;
+}
+
+.suggestionBtn {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-2 $space-4;
+  border-bottom: $border-width-thin solid rgba(255, 255, 255, 0.06);
+  text-align: left;
+  transition: background $duration-fast $ease-out;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
+
+.suggestionWord {
+  font-family: $font-sans;
+  font-size: $font-size-body-sm;
+  color: $color-text-inverse;
+  flex: 1;
+}
+
+.suggestionScore {
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  font-weight: $font-weight-bold;
+  color: $color-text-muted;
+}
+
+.noAlts {
+  padding: $space-3 $space-4;
+  font-family: $font-mono;
+  font-size: $font-size-mono-xs;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $color-text-muted;
+}
