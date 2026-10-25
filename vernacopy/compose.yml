@@ -33,7 +33,7 @@ services:
         reservations:
           cpus: '0.25'
           memory: 64M
-    restart: unless-stopped
+    restart: always
 
   backend:
     build:
@@ -73,7 +73,7 @@ services:
       timeout: 5s
       retries: 3
       start_period: 40s
-    restart: unless-stopped
+    restart: always
 
   ollama:
     image: ollama/ollama:latest
@@ -90,7 +90,7 @@ services:
         reservations:
           cpus: '0.5'
           memory: 2G
-    restart: unless-stopped
+    restart: always
 
   db:
     image: pgvector/pgvector:pg17
@@ -119,7 +119,7 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
-    restart: unless-stopped
+    restart: always
 
   redis:
     image: redis:7-alpine
@@ -144,7 +144,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-    restart: unless-stopped
+    restart: always
 
 networks:
   frontend:
