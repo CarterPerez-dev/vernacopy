@@ -135,13 +135,11 @@ networks:
 
 volumes:
   postgres_data:
-    name: vernacopy_postgres
-    external: true
+    name: vernacopy_postgres_dev
   redis_data:
-    name: vernacopy_redis
+    name: vernacopy_redis_dev
   backend_cache:
   backend_wordnet:
   frontend_modules:
   ollama_data:
-    name: vernacopy_ollama
-    external: true
+    name: vernacopy_ollama_dev
